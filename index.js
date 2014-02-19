@@ -19,7 +19,7 @@ WeChall.prototype.getall = function(done) {
 };
 
 function sl(msg) {
-    return msg.split(': ').slice(1)[0].split(',');
+    return msg.slice(0,-1).split(': ').slice(1)[0].split(', ');
 }
 
 function chall(msg) {
