@@ -1,0 +1,21 @@
+{
+  "name": "wechallparse",
+  "version": "0.0.1",
+  "description": "get www.wechall.net data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/APU-CSFC/nodejs-wechallparse"
+  },
+  "author": "Maverick JS",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/APU-CSFC/nodejs-wechallparse/issues"
+  },
+  "dependencies": {
+    "superagent": "~0.16.0"
+  }
+}
