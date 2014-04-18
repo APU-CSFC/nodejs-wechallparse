@@ -1,25 +1,45 @@
 var request = require('superagent');
+var util = require('util');
 var cname = require('./chall.js');
+var clc = require('cli-color');
 
-module.exports = function(username) {
-    return new WeChall(username);
+module.exports = function() {
+    return new WeChall();
 }
 
-function WeChall(username) {
-    this.baseurl = 'http://www.wechall.net/wechall.php?username=!sites '+username;
+var WeChall = function() {
+    this.userurl = 'http://www.wechall.net/wechall.php';
+    this.baseurl = 'http://www.wechall.net/index.php';
+    this.basepayload = {'mo': 'WeChall', 'me': '', 'no_session': '1'};
 }
 
-WeChall.prototype.getall = function(done) {
+
+WeChall.prototype.userstats = function(opts, cb) {
+    var payload = {};
+
+    
+    if (opts.user && opts.sites === false && opts.sitealias === '') {
+        payload = {'username': opts.user};
+    }
+    else if (opts.sites === true && opts.sitealias === '') {
+        payload = {'username': '!sites '+opts.user}
+    }
+    else if (cname[opts.sitealias] !== undefined) {
+        data = '!'+opts.sitealias+' '+opts.user;
+        payload = {'username': data}
+    }
+    else if (cname[opts.sitealias] === undefined) {
+        console.error(clc.red(util.format('[!] %s is not a valid site alias.', opts.sitealias)));
+        return false;
+    }
     request
-        .get(this.baseurl)
+        .get(this.userurl)
+        .query(payload)
         .end(function(err, res) {
-            var slres = sl(res.text);
-            var challres = chall(slres);
-            return done(err, challres);
+            return cb(err, res.text);
         });
-};
-
-function sl(msg) {
+}
+/* function sl(msg) {
     return msg.slice(0,-1).split(': ').slice(1)[0].split(', ');
 }
 
@@ -35,4 +55,4 @@ function chall(msg) {
         result[short_name][long_name] = percentage;
     }
     return result;
-}
+} */
