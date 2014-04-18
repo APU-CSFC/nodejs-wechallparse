@@ -1,21 +1,30 @@
 {
-  "name": "wechallparse",
+  "name": "wechall",
   "version": "0.0.1",
-  "description": "get www.wechall.net data",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "get user's data from www.wechall.net",
+  "bin": "bin/cmd.js",
+  "dependencies": {
+    "superagent": "~0.16.0",
+    "cli-color": "~0.2.3",
+    "nomnom": "~1.6.2"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/APU-CSFC/nodejs-wechallparse"
   },
-  "author": "Maverick JS",
+  "homepage": "https://github.com/APU-CSFC/nodejs-wechallparse",
+  "keywords": [
+    "wechall",
+    "wargames",
+    "api"
+  ],
+  "author": {
+    "name": "Ye Myat Kaung (Maverick)",
+    "email": "mavjs@mavjs.org",
+    "url": "http://mavjs.org"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/APU-CSFC/nodejs-wechallparse/issues"
-  },
-  "dependencies": {
-    "superagent": "~0.16.0"
   }
 }
