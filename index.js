@@ -39,20 +39,3 @@ WeChall.prototype.userstats = function(opts, cb) {
             return cb(err, res.text);
         });
 }
-/* function sl(msg) {
-    return msg.slice(0,-1).split(': ').slice(1)[0].split(', ');
-}
-
-function chall(msg) {
-    var i = 0;
-    var result = {};
-    for(i; i<msg.length; i++) {
-        var short_name = msg[i].split('(')[0];
-        var long_name = cname[short_name];
-        var percentage = msg[i].split('(')[1].slice(0,-1);
-        
-        result[short_name] = {};
-        result[short_name][long_name] = percentage;
-    }
-    return result;
-} */
