@@ -10,16 +10,17 @@ parser.command('userstats')
         user: {
             abbr: 'u',
             default: '',
-            help: 'Username of the person you want to see stats of.'
+            help: 'Will output the general user ranking on wechall.'
         },
         sites: {
+            abbr: 's',
             default: false,
-            help: 'Find only sites with a given username.'
+            help: 'Will give an overview of all sites the user is linked to.'
         },
         sitealias: {
             abbr: 'a',
             default: '',
-            help: 'The alias of the wargames name that you want to query.'
+            help: 'Will give an overview of one particular site the user is playing.'
         }
     })
     .callback(function(opts) {
@@ -34,36 +35,48 @@ parser.command('userstats')
     })
     .help("Get userstats of a particular username in wechall.")
 
-/* TODO: implement activity api */
 parser.command('activity')
     .options({
         datestamp: {
-            abbr: 'date',
+            abbr: 'd',
             default: '',
-            help: 'Find a particular activity based on the datestamp.'
+            help: 'Fetch only messages >= this timestamp. [YYYYmmddhhiiss]'
         },
         user: {
             abbr: 'u',
             default: '',
-            help: 'Username of the person you want to see stats of.'
+            help: 'Fetch only messages for one user.'
         },
         sitename: {
-            abbr: 'sa',
+            abbr: 's',
             default: '',
-            help: 'Find a particular activity based on a wargame sitename.'
+            help: 'Fetch only messages for one site.'
         },
         limit: {
+            abbr: 'l',
             default: '',
-            help: 'Find a particular activity based on a range of limit.'
+            help: 'Limit the results to a value.'
         },
         masterkey: {
-            abbr: 'key',
+            abbr: 'k',
             default: '',
-            help: 'The masterkey to query a particular activity.'
+            help: 'Raise the max limit of output rows.'
+        },
+        pass: {
+            abbr: 'p',
+            default: '',
+            help: 'Private API password, when a single user is queried.'
         }
     })
     .callback(function(opts) {
-        console.log(opts);
+        WeChall.activity(opts, function(err, result) {
+            if (!err) {
+                console.log(result);
+            }
+            else {
+                console.error(clc.red(util.format('[!] %s', err)));
+            }
+        });
     })
     .help("Poll the latest activity in a machine readable format.")
 

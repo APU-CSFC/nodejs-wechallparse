@@ -16,7 +16,6 @@ var WeChall = function() {
 
 WeChall.prototype.userstats = function(opts, cb) {
     var payload = {};
-
     
     if (opts.user && opts.sites === false && opts.sitealias === '') {
         payload = {'username': opts.user};
@@ -34,6 +33,32 @@ WeChall.prototype.userstats = function(opts, cb) {
     }
     request
         .get(this.userurl)
+        .query(payload)
+        .end(function(err, res) {
+            return cb(err, res.text);
+        });
+}
+
+WeChall.prototype.activity = function(opts, cb) {
+    var payload = this.basepayload;
+    payload.me = 'API_History';
+   
+    if (opts.datestamp) {
+        payload['datestamp'] = opts.datestamp;
+    } else if (opts.user) {
+        payload['username'] = opts.user;
+    } else if (opts.sitename) {
+        payload['sitename'] = opts.sitename;
+    } else if (opts.limit) {
+        payload['limit'] = opts.limit;
+    } else if (opts.masterkey) {
+        payload['masterkey'] = opts.masterkey;
+    } else if (opts.pass) {
+        payload['password'] = opts.pass;
+    }
+
+    request
+        .get(this.baseurl)
         .query(payload)
         .end(function(err, res) {
             return cb(err, res.text);
