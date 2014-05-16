@@ -2,7 +2,10 @@
   "name": "wechall",
   "version": "0.0.1",
   "description": "get user's data from www.wechall.net",
-  "bin": "bin/cmd.js",
+  "main": "index.js",
+  "bin": {
+      "wechall": "bin/cmd.js"
+  },
   "dependencies": {
     "superagent": "~0.16.0",
     "cli-color": "~0.2.3",
@@ -16,7 +19,10 @@
   "keywords": [
     "wechall",
     "wargames",
-    "api"
+    "api",
+    "capture the flag",
+    "CTF",
+    "security competitions"
   ],
   "author": {
     "name": "Ye Myat Kaung (Maverick)",
