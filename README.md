@@ -1,17 +1,17 @@
 wechall
 =======
 wechall is a cli utility to get challenge results of a particular username 
-from `http://www.wechall.net <http://www.wechall.net>`_.
+from [http://www.wechall.net](http://www.wechall.net).
 
 Install
 =======
-for node.js and npm::
+for node.js and npm:
     
     npm install wechall
 
 Usage
 =====
-.....would look like this::
+.....would look like this:
 
     Usage: node cmd.js <command>
 
@@ -21,7 +21,7 @@ Usage
         userapi       Get the user profile internals if the api key is provided.
         siteapi       I don't even know what this actually does yet.
 
-for getting help of each command (e.g. userstats)::
+for getting help of each command (e.g. userstats):
 
     Usage: node cmd.js userstats [options]
 
@@ -34,7 +34,7 @@ for getting help of each command (e.g. userstats)::
 
 Examples
 ========
-Querying information about percentage in each game::
+Querying information about percentage in each game:
 
     $ node cmd.js userstats -u mavjs --sites true
     mavjs plays 3 sites, primary: OTW(29.08%), HTS(6.72%), WC(2.92%).
