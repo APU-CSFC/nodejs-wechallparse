@@ -1,6 +1,6 @@
 {
   "name": "wechall",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "get user's data from www.wechall.net",
   "main": "index.js",
   "bin": {
@@ -27,7 +27,7 @@
   "author": {
     "name": "Ye Myat Kaung (Maverick)",
     "email": "mavjs@mavjs.org",
-    "url": "http://mavjs.org"
+    "url": "http://www.mavjs.org"
   },
   "license": "MIT",
   "bugs": {
