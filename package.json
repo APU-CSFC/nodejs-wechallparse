@@ -13,9 +13,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/APU-CSFC/nodejs-wechallparse"
+    "url": "https://github.com/mavjs/nodejs-wechallparse"
   },
-  "homepage": "https://github.com/APU-CSFC/nodejs-wechallparse",
+  "homepage": "https://github.com/mavjs/nodejs-wechallparse",
   "keywords": [
     "wechall",
     "wargames",
@@ -31,6 +31,6 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/APU-CSFC/nodejs-wechallparse/issues"
+    "url": "https://github.com/mavjs/nodejs-wechallparse/issues"
   }
 }
