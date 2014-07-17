@@ -5,6 +5,15 @@ var WeChall = require('..')();
 var parser = require('nomnom');
 var clc = require('cli-color');
 
+function callback(err, result) {
+    if (!err) {
+        console.log(result);
+    }
+    else {
+        console.error(clc.red(util.format('[!] %s', err)));
+    }
+};
+
 parser.command('userstats')
     .options({
         user: {
@@ -89,13 +98,20 @@ parser.command('userapi')
             help: 'Username of the person on wechall.'
         },
         apikey: {
-            abbr: 'key',
+            abbr: 'k',
             default: '',
             help: 'The api key from wechall.'
         }
     })
     .callback(function(opts) {
-        console.log(opts);
+        WeChall.userapi(opts, function(err, result) {
+            if (!err) {
+                console.log(result);
+            }
+            else {
+                console.error(clc.red(util.format('[!] %s', err)))
+            }
+        });
     })
     .help("Get the user profile internals if the api key is provided.")
 
@@ -103,13 +119,20 @@ parser.command('userapi')
 parser.command('siteapi')
     .options({
         sitename: {
-            abbr: 'sa',
+            abbr: 's',
             default: '',
             help: 'The site name that you want to query for.'
         }
     })
     .callback(function(opts) {
-        console.log(opts);
+        WeChall.siteapi(opts, function(err, result) {
+            if (!err) {
+                console.log(result);
+            }
+            else {
+                console.error(clc.red(util.format('[!] %s', err)));
+            }
+        });
     })
     .help("I don't even know what this actually does yet.")
 

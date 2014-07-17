@@ -64,3 +64,39 @@ WeChall.prototype.activity = function(opts, cb) {
             return cb(err, res.text);
         });
 }
+
+WeChall.prototype.userapi = function(opts, cb) {
+    var payload = this.basepayload;
+    payload.me = 'API_User';
+
+    if (!opts.user) {
+        console.error(clc.red('Please specify a username to lookup!'));
+    } else if (opts.user) {
+        payload.username = opts.user;
+    } else if (opts.apikey) {
+        payload.apikey = opts.apikey;
+    }
+
+    request
+        .get(this.baseurl)
+        .query(payload)
+        .end(function(err, res) {
+            return cb(err, res.text);
+        });
+}
+
+WeChall.prototype.siteapi = function(opts, cb) {
+    var payload = this.basepayload;
+    payload.me = 'API_Site';
+
+    if (opts.sitename) {
+        payload['sitename'] = opts.sitename;
+    }
+
+    request
+        .get(this.baseurl)
+        .query(payload)
+        .end(function(err, res) {
+            return cb(err, res.text);
+        });
+}
