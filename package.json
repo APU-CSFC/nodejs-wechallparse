@@ -1,6 +1,6 @@
 {
   "name": "wechall",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "get user's data from www.wechall.net",
   "main": "index.js",
   "bin": {
