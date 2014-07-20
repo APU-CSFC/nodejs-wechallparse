@@ -19,7 +19,7 @@ Usage
         userstats     Get userstats of a particular username in wechall.
         activity      Poll the latest activity in a machine readable format.
         userapi       Get the user profile internals if the api key is provided.
-        siteapi       I don't even know what this actually does yet.
+        siteapi       Query challenge sites' API database.
 
 for getting help of each command (e.g. userstats):
 
@@ -38,3 +38,8 @@ Querying information about percentage in each game:
 
     $ node cmd.js userstats -u mavjs --sites true
     mavjs plays 3 sites, primary: OTW(29.08%), HTS(6.72%), WC(2.92%).
+
+Query API information about a challenge site:
+
+    $ node bin/cmd.js siteapi -s OTW
+    OverTheWire.org::OTW::up::http\://www.overthewire.org/wargames/::::0::608::142::10000::25.07%::23704

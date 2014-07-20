@@ -134,6 +134,6 @@ parser.command('siteapi')
             }
         });
     })
-    .help("I don't even know what this actually does yet.")
+    .help("Query challenge sites' API database.")
 
 parser.parse()
