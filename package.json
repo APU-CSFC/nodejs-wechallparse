@@ -7,7 +7,7 @@
       "wechall": "bin/cmd.js"
   },
   "dependencies": {
-    "superagent": "~0.16.0",
+    "superagent": ">3.6.3",
     "cli-color": "~0.2.3",
     "nomnom": "~1.6.2"
   },
